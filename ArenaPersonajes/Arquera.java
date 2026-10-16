@@ -1,0 +1,28 @@
+public class Arquera extends Personaje {
+
+    public Arquera(String nombre, int vida) {
+        super(nombre, vida);
+    }
+
+    @Override
+    public void atacar(Personaje objetivo) {
+        if (!estaVivo()) {
+            System.out.println(getNombre() + " está derrotada.");
+            return;
+        }
+
+        if (!objetivo.estaVivo()) {
+            System.out.println(
+                objetivo.getNombre() + " ya fue derrotado."
+            );
+            return;
+        }
+
+        System.out.println(
+            getNombre() + " dispara una flecha a "
+            + objetivo.getNombre() + "."
+        );
+
+        objetivo.recibirDanio(15);
+    }
+}
